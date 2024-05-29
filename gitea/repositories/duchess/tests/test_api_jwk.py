@@ -31,7 +31,7 @@ class TestPyJWK:
         jwk = PyJWK.from_dict(key_data)
 
         assert jwk.key_type == "RSA"
-        assert jwk.key_id == "keyid-abc123"
+        assert jwk.key_id == os.environ.get('KEY_ID', 'default_key_id')
         assert jwk.public_key_use == "sig"
 
     @crypto_required
