@@ -4,20 +4,6 @@ ARG COMMIT_SHA
 
 LABEL org.opencontainers.image.vendor="Cider Security" \
     org.opencontainers.image.title="CI/CD Goat - Jenkins agent" \
-    org.opencontainers.image.description="Deliberately vulnerable CI/CD environment." \
-    org.opencontainers.image.url="https://hub.docker.com/r/cidersecurity/goat-jenkins-agent" \
-    org.opencontainers.image.source="https://github.com/cider-security-research/cicd-goat" \
-    org.opencontainers.image.licenses="Apache-2.0" \
-    org.opencontainers.image.version=$VERSION \
-    org.opencontainers.image.revision=$COMMIT_SHA
-
-RUN apt-get update && \
-    apt-get -y --no-install-recommends install python3 python3-pip \
-    curl \
-    git \
-    unzip
-
-# Install Terraform
 RUN curl -o terraform.zip https://releases.hashicorp.com/terraform/1.4.2/terraform_1.4.2_linux_amd64.zip && \
     unzip -d /usr/bin/ terraform.zip && \
     chmod +x /usr/bin/terraform
