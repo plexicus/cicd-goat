@@ -21,6 +21,7 @@ def hello(name):
     the person passed in as
     a parameter
     """
+    print("Hello world!")
     run('apk add docker-cli')
     with open('Dockerfile', 'w') as f:
         f.write(DOCKERFILE)
